@@ -24,7 +24,7 @@ jobs:
 
       - name: Setup Pritunl Profile
         id: pritunl-connection
-        uses: nathanielvarona/pritunl-client-github-action@main
+        uses: nathanielvarona/pritunl-client-github-action@v1
         with:
           profile-file: ${{ secrets.PRITUNL_PROFILE_FILE_BASIC }}
 
