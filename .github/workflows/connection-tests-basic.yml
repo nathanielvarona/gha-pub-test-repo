@@ -24,7 +24,7 @@ jobs:
 
       - name: Setup Pritunl Profile
         id: pritunl-connection
-        uses: nathanielvarona/pritunl-client-github-action@improvement-metadata-composite-script-entrypoint-dynamic-path
+        uses: nathanielvarona/pritunl-client-github-action@main
         with:
           profile-file: ${{ secrets.PRITUNL_PROFILE_FILE_BASIC }}
 
