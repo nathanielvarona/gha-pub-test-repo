@@ -1,0 +1,30 @@
+name: Connection Tests - Manual - Install Only
+
+on:
+  workflow_dispatch:
+
+jobs:
+  connection-tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-22.04
+          - ubuntu-20.04
+          - macos-13
+          - macos-12
+          - windows-2022
+          - windows-2019
+    runs-on: ${{ matrix.os }}
+    name: "run:${{ matrix.os }}"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pritunl Profile
+        id: pritunl-connection
+        uses: nathanielvarona/pritunl-client-github-action@v1
+        with:
+          profile-file: ${{ secrets.PRITUNL_PROFILE_FILE_BASIC }}
+          start-connection: false
